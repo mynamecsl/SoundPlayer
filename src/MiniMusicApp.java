@@ -25,8 +25,12 @@ public class MiniMusicApp {
 			
 			//对track加入两个MidiEvent
 			ShortMessage a = new ShortMessage();
-			a.setMessage(144, 1, 44,100);
-			MidiEvent noteOn = new MidiEvent(a, 1);
+			a.setMessage(144, 1, 44,100);//四个参数分别为类型、频道、音符、音道
+			MidiEvent noteOn = new MidiEvent(a, 1);//第一拍启动a这个messsge
+			/**
+			 * track带有全部的MidiEvent对象，Sequence会跟是事件时间组织他们
+			 * 然后Sequencer会根据此顺序来播放，同一时间可以执行多个操作。
+			 */
 			track.add(noteOn);
 			
 			ShortMessage b = new ShortMessage();
